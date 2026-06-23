@@ -1,0 +1,19 @@
+[project]
+name = "space-invaders"
+version = "0.1.0"
+description = "Space Invaders clone using Python and Arcade"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "arcade",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
