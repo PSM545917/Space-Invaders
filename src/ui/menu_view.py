@@ -27,3 +27,12 @@ class MenuView(arcade.View):
             font_size=20,
             anchor_x="center",
         )
+
+    def on_key_press(self, key: int, modifiers: int) -> None:
+        """Maneja el inicio del juego al presionar ENTER o la salida al presionar ESC."""
+        if key == arcade.key.ENTER:
+            from src.game import GameView
+            game_view = GameView()
+            self.window.show_view(game_view)
+        elif key == arcade.key.ESCAPE:
+            self.window.close()
