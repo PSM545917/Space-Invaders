@@ -11,6 +11,7 @@ from src.settings import (
     ENEMY_DESCEND_AMOUNT,
     ENEMY_POINTS,
     SCREEN_WIDTH,
+    ASSET_PATHS,
 )
 
 class FormationState(enum.Enum):
@@ -19,19 +20,19 @@ class FormationState(enum.Enum):
     MOVING_LEFT = 2
     DESCEND = 3
 
-class Enemy(arcade.SpriteSolidColor):
+class Enemy(arcade.Sprite):
     """Representa a un invasor individual en la formación."""
 
     def __init__(self, row: int, col: int) -> None:
-        """Inicializa al enemigo con color según su fila y almacena sus índices."""
-        # TODO: Reemplazar el SpriteSolidColor por una textura de sprite en la Fase 5
+        """Inicializa al enemigo con textura, color según su fila y almacena sus índices."""
+        texture = arcade.load_texture(ASSET_PATHS["sprites"]["enemy"])
+        super().__init__(texture)
         if row == 0:
-            color = arcade.color.RED_DEVIL
+            self.color = arcade.color.RED_DEVIL
         elif row in (1, 2):
-            color = arcade.color.PUMPKIN
+            self.color = arcade.color.PUMPKIN
         else:
-            color = arcade.color.MAGENTA
-        super().__init__(width=ENEMY_WIDTH, height=ENEMY_HEIGHT, color=color)
+            self.color = arcade.color.MAGENTA
         self.row: int = row
         self.col: int = col
         self.points_value: int = ENEMY_POINTS.get(row, 10)

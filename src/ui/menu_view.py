@@ -15,8 +15,9 @@ class MenuView(arcade.View):
             "SPACE INVADERS",
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2 + 50,
-            color=arcade.color.WHITE,
-            font_size=40,
+            color=arcade.color.GREEN,
+            font_size=32,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
         arcade.draw_text(
@@ -24,7 +25,8 @@ class MenuView(arcade.View):
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2 - 50,
             color=arcade.color.WHITE,
-            font_size=20,
+            font_size=12,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
 

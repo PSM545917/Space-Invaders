@@ -24,7 +24,8 @@ class GameOverView(arcade.View):
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2 + 100,
             color=arcade.color.RED,
-            font_size=40,
+            font_size=32,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
 
@@ -34,7 +35,8 @@ class GameOverView(arcade.View):
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2,
             color=arcade.color.WHITE,
-            font_size=20,
+            font_size=12,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
 
@@ -44,7 +46,8 @@ class GameOverView(arcade.View):
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2 - 40,
             color=arcade.color.YELLOW,
-            font_size=18,
+            font_size=12,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
 
@@ -54,7 +57,8 @@ class GameOverView(arcade.View):
             x=SCREEN_WIDTH / 2,
             y=SCREEN_HEIGHT / 2 - 120,
             color=arcade.color.LIGHT_GRAY,
-            font_size=14,
+            font_size=10,
+            font_name="Press Start 2P",
             anchor_x="center",
         )
 

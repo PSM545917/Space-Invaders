@@ -1,22 +1,21 @@
 import arcade
 from src.settings import (
-    PLAYER_WIDTH,
-    PLAYER_HEIGHT,
     PLAYER_SPEED,
     PLAYER_LIVES,
     PLAYER_COOLDOWN,
     PLAYER_START_Y,
     SCREEN_WIDTH,
+    ASSET_PATHS,
 )
 from src.entities.bullet import Bullet
 
-class Player(arcade.SpriteSolidColor):
+class Player(arcade.Sprite):
     """Representa la nave del jugador, controlando su movimiento, vidas y disparos."""
 
     def __init__(self) -> None:
         """Inicializa al jugador en la posición inicial, con vidas y cooldown en cero."""
-        # TODO: Reemplazar el SpriteSolidColor por una textura de sprite en la Fase 5
-        super().__init__(width=PLAYER_WIDTH, height=PLAYER_HEIGHT, color=arcade.color.GREEN)
+        texture = arcade.load_texture(ASSET_PATHS["sprites"]["player"])
+        super().__init__(texture)
         self.center_x: float = SCREEN_WIDTH / 2
         self.center_y: float = PLAYER_START_Y
         self.lives: int = PLAYER_LIVES

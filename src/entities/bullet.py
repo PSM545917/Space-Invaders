@@ -1,14 +1,14 @@
 import arcade
-from src.settings import BULLET_WIDTH, BULLET_HEIGHT, BULLET_SPEED, SCREEN_HEIGHT
+from src.settings import BULLET_SPEED, SCREEN_HEIGHT, ASSET_PATHS
 
-class Bullet(arcade.SpriteSolidColor):
+class Bullet(arcade.Sprite):
     """Representa un proyectil disparado por el jugador o por un enemigo."""
 
     def __init__(self, owner: str, direction: int) -> None:
-        """Inicializa la bala con color según el dueño y velocidad según dirección."""
-        # TODO: Reemplazar el SpriteSolidColor por una textura de sprite en la Fase 5
-        color = arcade.color.YELLOW if owner == "player" else arcade.color.RED
-        super().__init__(width=BULLET_WIDTH, height=BULLET_HEIGHT, color=color)
+        """Inicializa la bala con textura según el dueño y velocidad según dirección."""
+        sprite_key = "player_bullet" if owner == "player" else "enemy_bullet"
+        texture = arcade.load_texture(ASSET_PATHS["sprites"][sprite_key])
+        super().__init__(texture)
         self.owner: str = owner
         self.change_y: float = direction * BULLET_SPEED
 

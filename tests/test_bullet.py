@@ -21,14 +21,14 @@ def test_bullet_removed_when_offscreen(bullet_factory) -> None:
     # Proyectil subiendo que sale por arriba
     bullet_up = bullet_factory(owner="player", direction=1)
     sprite_list.append(bullet_up)
-    bullet_up.center_y = SCREEN_HEIGHT + 10
+    bullet_up.center_y = SCREEN_HEIGHT + 100
     bullet_up.update()
     assert bullet_up not in sprite_list
 
     # Proyectil bajando que sale por abajo
     bullet_down = bullet_factory(owner="enemy", direction=-1)
     sprite_list.append(bullet_down)
-    bullet_down.center_y = -10
+    bullet_down.center_y = -100
     bullet_down.update()
     assert bullet_down not in sprite_list
 
