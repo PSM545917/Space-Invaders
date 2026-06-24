@@ -4,6 +4,7 @@ from src.settings import (
     PLAYER_LIVES,
     PLAYER_COOLDOWN,
     PLAYER_START_Y,
+    PLAYER_WIDTH,
     SCREEN_WIDTH,
     ASSET_PATHS,
 )
@@ -15,7 +16,9 @@ class Player(arcade.Sprite):
     def __init__(self) -> None:
         """Inicializa al jugador en la posición inicial, con vidas y cooldown en cero."""
         texture = arcade.load_texture(ASSET_PATHS["sprites"]["player"])
-        super().__init__(texture)
+        # Escalar a PLAYER_WIDTH píxeles de ancho
+        scale = PLAYER_WIDTH / texture.width
+        super().__init__(texture, scale=scale)
         self.center_x: float = SCREEN_WIDTH / 2
         self.center_y: float = PLAYER_START_Y
         self.lives: int = PLAYER_LIVES

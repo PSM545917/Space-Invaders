@@ -18,17 +18,10 @@ from src.ui.hud import HUD
 from src.ui.game_over_view import GameOverView
 
 def load_sound_safe(path: str) -> arcade.Sound | None:
-    """Intenta cargar un sonido de forma segura, con fallback a shoot.wav.wav si no existe."""
+    """Intenta cargar un sonido de forma segura; retorna None si no existe o falla."""
     if os.path.exists(path):
         try:
             return arcade.Sound(path)
-        except Exception:
-            pass
-    # Buscar el único sonido disponible físicamente en disk como fallback
-    fallback = "assets/sounds/shoot.wav.wav"
-    if os.path.exists(fallback):
-        try:
-            return arcade.Sound(fallback)
         except Exception:
             pass
     return None

@@ -1,14 +1,15 @@
 import arcade
-from src.settings import BULLET_SPEED, SCREEN_HEIGHT, ASSET_PATHS
+from src.settings import BULLET_SPEED, BULLET_WIDTH, SCREEN_HEIGHT, ASSET_PATHS
 
 class Bullet(arcade.Sprite):
     """Representa un proyectil disparado por el jugador o por un enemigo."""
 
     def __init__(self, owner: str, direction: int) -> None:
-        """Inicializa la bala con textura según el dueño y velocidad según dirección."""
+        """Inicializa la bala con textura escalada a BULLET_WIDTH según el dueño."""
         sprite_key = "player_bullet" if owner == "player" else "enemy_bullet"
         texture = arcade.load_texture(ASSET_PATHS["sprites"][sprite_key])
-        super().__init__(texture)
+        scale = BULLET_WIDTH / texture.width
+        super().__init__(texture, scale=scale)
         self.owner: str = owner
         self.change_y: float = direction * BULLET_SPEED
 

@@ -24,9 +24,11 @@ class Enemy(arcade.Sprite):
     """Representa a un invasor individual en la formación."""
 
     def __init__(self, row: int, col: int) -> None:
-        """Inicializa al enemigo con textura, color según su fila y almacena sus índices."""
+        """Inicializa al enemigo con textura escalada a ENEMY_WIDTH, color según fila."""
         texture = arcade.load_texture(ASSET_PATHS["sprites"]["enemy"])
-        super().__init__(texture)
+        # Calcular escala para que el sprite renderice exactamente ENEMY_WIDTH píxeles de ancho
+        scale = ENEMY_WIDTH / texture.width
+        super().__init__(texture, scale=scale)
         if row == 0:
             self.color = arcade.color.RED_DEVIL
         elif row in (1, 2):

@@ -26,12 +26,12 @@ ENEMY_SPEED_BASE: float = 60.0
 ENEMY_ROWS: int = 5
 ENEMY_COLS: int = 10
 ENEMY_DESCEND_AMOUNT: float = 20.0  # Cuánto baja la formación al cambiar de dirección
-ENEMY_WIDTH: int = 40
-ENEMY_HEIGHT: int = 25
-ENEMY_SPACING_X: float = 20.0
-ENEMY_SPACING_Y: float = 20.0
-ENEMY_START_X: float = 80.0
-ENEMY_START_Y: float = 350.0
+ENEMY_WIDTH: int = 40        # Ancho visual deseado tras escalar
+ENEMY_HEIGHT: int = 28       # Alto visual deseado tras escalar
+ENEMY_SPACING_X: float = 24.0  # Gap horizontal entre sprites escalados
+ENEMY_SPACING_Y: float = 20.0  # Gap vertical entre sprites escalados
+ENEMY_START_X: float = 60.0
+ENEMY_START_Y: float = 430.0
 ENEMY_POINTS: dict[int, int] = {
     0: 10,  # Fila inferior
     1: 20,
@@ -57,7 +57,7 @@ ASSET_PATHS: dict[str, dict[str, str]] = {
         "enemy_bullet": "assets/sprites/enemy_bullet.png",
     },
     "sounds": {
-        "shoot": "assets/sounds/shoot.wav.wav",
+        "shoot": "assets/sounds/shoot.wav",
         "explosion": "assets/sounds/explosion.wav",
         "gameover": "assets/sounds/gameover.wav",
         "music": "assets/sounds/music.wav",
